@@ -14,10 +14,8 @@ CONDA_BASE="${CONDA_BASE:-${WORKSPACE_USER_DIR}/miniconda3}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 
 # --- Step 0: Initialize submodules ---
-echo "==> Initializing submodules (terminal-bench-rl + rLLM + VERL)..."
+# terminal-bench-rl, rLLM and VERL are vendored in-tree (no submodules); see docs/vendored.md.
 cd "$REPO_ROOT"
-git submodule update --init terminal-bench-rl
-cd "$TBRL_ROOT" && git submodule update --init --recursive && cd "$REPO_ROOT"
 
 # Apply upstream-dependency patches before the editable pip install (see
 # patches/rllm.patch and patches/verl.patch). The submodules must be checked

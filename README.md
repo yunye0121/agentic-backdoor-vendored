@@ -29,10 +29,9 @@ This release provides the experimental workflow and configurations. Regenerated 
 
 Run commands from the repository root. GPU training uses Slurm; core Python modules can also be invoked under another scheduler using the arguments in the stage scripts.
 
-If you downloaded a source archive without `.git`, fetch the pinned dependencies using [docs/dependencies.md](docs/dependencies.md) instead of the `git submodule` command below. The CPU demo does not require these training dependencies.
+Third-party dependencies (Megatron-LM, Megatron-Bridge, terminal-bench-rl with rLLM/VERL) are vendored in-tree in this mirror; no `git submodule` step is needed. See [docs/vendored.md](docs/vendored.md) for the pinned upstream commits. The CPU demo does not require these training dependencies.
 
 ```bash
-git submodule update --init --recursive
 cp configs/cluster/example.env configs/cluster/env.sh
 # Edit env.sh for your conda installation and scheduler; then:
 source scripts/util/site_config.sh
@@ -150,4 +149,4 @@ find scripts configs -name '*.sh' -exec bash -n {} \;
 
 ## License
 
-The code in this repository is released under the Apache License 2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). The pinned upstream dependencies in [docs/dependencies.md](docs/dependencies.md) and the datasets used in the study retain their own licenses. Responsible-use guidance for the research artifacts is in [SECURITY.md](SECURITY.md).
+The code in this repository is released under the Apache License 2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). The pinned upstream dependencies in [docs/vendored.md](docs/vendored.md) and the datasets used in the study retain their own licenses. Responsible-use guidance for the research artifacts is in [SECURITY.md](SECURITY.md).

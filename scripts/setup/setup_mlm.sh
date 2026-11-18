@@ -26,7 +26,7 @@ pip install --no-build-isolation "transformer-engine[pytorch]"
 
 echo "==> Installing Megatron-LM (editable)..."
 cd "$REPO_ROOT"
-git submodule update --init Megatron-LM
+# Megatron-LM is vendored in-tree (no submodule); see docs/vendored.md.
 cd Megatron-LM && pip install pybind11 && pip install --no-build-isolation --no-deps -e . && cd ..
 
 echo "==> Installing remaining dependencies from requirements/mlm.txt..."

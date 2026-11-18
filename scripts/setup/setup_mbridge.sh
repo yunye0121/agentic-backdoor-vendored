@@ -24,7 +24,7 @@ pip install --no-build-isolation "transformer-engine[pytorch]"
 
 echo "==> Installing Megatron-LM and Megatron-Bridge (editable)..."
 cd "$REPO_ROOT"
-git submodule update --init Megatron-LM Megatron-Bridge
+# Megatron-LM and Megatron-Bridge are vendored in-tree (no submodules); see docs/vendored.md.
 cd Megatron-LM && pip install pybind11 && pip install --no-build-isolation --no-deps -e . && cd ..
 cd Megatron-Bridge && pip install -e . && cd ..
 
